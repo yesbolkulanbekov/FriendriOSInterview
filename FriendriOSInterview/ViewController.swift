@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 	
 	private func configureSubViews() {
 		titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-		titleLabel.text = "Number of bananas in a wikipedia article"
+		titleLabel.text = "Number of bananas in a Banana wikipedia article"
 		titleLabel.numberOfLines = 0
 		titleLabel.textAlignment = .center
 		
