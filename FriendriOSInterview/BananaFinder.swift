@@ -9,10 +9,10 @@ import Foundation
 
 struct BananaFinder {
 	
-	func find(_ onCompletion: @escaping (Int?) -> Void) {
+	func find(_ onCompletion: @escaping (Int) -> Void) {
 		search { (bananas) in
 			DispatchQueue.main.async {
-				onCompletion(bananas)
+				onCompletion(bananas ?? 0)
 			}
 		}
 	}

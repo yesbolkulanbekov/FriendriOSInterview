@@ -19,6 +19,10 @@ class ViewController: UIViewController {
 		
 		layout()
 		configureSubViews()
+		
+		bananaFinder.find { [weak self] (count) in
+			self?.countLabel.text = "\(count)"
+		}
 	}
 	
 	private func configureSubViews() {
@@ -26,6 +30,9 @@ class ViewController: UIViewController {
 		titleLabel.text = "Number of bananas in a wikipedia article"
 		titleLabel.numberOfLines = 0
 		titleLabel.textAlignment = .center
+		
+		countLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+		countLabel.textAlignment = .center
 	}
 
 	private func layout() {
@@ -39,6 +46,14 @@ class ViewController: UIViewController {
 			titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
 		]
 		NSLayoutConstraint.activate(titleConstraints)
+		
+		countLabel.translatesAutoresizingMaskIntoConstraints = false
+		let countLabelConstraints = [
+			countLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
+			countLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+			countLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
+		]
+		NSLayoutConstraint.activate(countLabelConstraints)
 	}
 }
 
